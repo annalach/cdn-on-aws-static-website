@@ -18,13 +18,15 @@ To use Amazon CloudFront, you start by creating a distribution. A place from a d
 
 ### What are Amazon S3 and S3 bucket?
 
-Amazon Simple Storage Service is object storage that stores data as objects within buckets. An object is a file and any metadata that describes that file. A bucket is a container for objects.
+Amazon Simple Storage Service is object storage that stores data as objects within buckets. An object is a file and any metadata that describes that file. A bucket is a container for objects. Its name has to be globally unique.
 
 ### What is Amazon Route 53?
 
 Amazon Route 53 is the AWS Domain Name Server service.
 
 ![Source: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-dns-service.html](.gitbook/assets/how-route-53-routes-traffic.png)
+
+After making changes in DNS servers changes are not immediately available, they need time to propagate! You can check DNS propagation [here](https://dnschecker.org/#NS).
 
 ### What is AWS Certificate Manager?
 
