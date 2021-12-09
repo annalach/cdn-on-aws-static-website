@@ -1,15 +1,9 @@
 # Clean Up
 
-### Disable your CloudFront distribution
-
-### Delete your CloudFront distribution
-
-### Delete your SSL/TLS certificate
-
-### Delete A and CNAME records from your Hosted Zone
-
-### Delete your Hosted Zone
-
-### Delete objects from both S3 Buckets
-
-### Delete both S3 Buckets
+1. Disable your CloudFront distribution.
+2. Delete your CloudFront distribution.
+3. Delete your SSL certificate.
+4. Delete A and CNAME records from your hosted zone.
+5. Delete your hosted zone.
+6. Delete objects from both S3 Buckets.
+7. Delete both S3 Buckets.
