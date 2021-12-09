@@ -20,7 +20,7 @@ As an IAM User sign in to AWS Management Console.
 4. Fill in **Fully qualified domain name** input with your domain name.
 5. Leave **DNS validation - recommended** selected and click **Request**.
 
-A record of type **CNAME** will be added to your hosted zone.
+A record of type **CNAME** will be added to your hosted zone. It's a type of record that maps one domain name to another.
 
 ### Create S3 buckets
 
@@ -34,6 +34,8 @@ A record of type **CNAME** will be added to your hosted zone.
 8. Fill in **Bucket name** and select **AWS Region**.
 9. This time, select **ACLs enabled**.
 10. Leave the rest defaults selected and click **Create bucket**.
+
+**S3 ACL (access control list)** is a legacy access control mechanism. It defines which AWS accounts or groups are granted access and the type of access. As a general rule, AWS recommends using S3 bucket policies or IAM policies for access control. &#x20;
 
 ### Create your CloudFront distribution
 
@@ -52,14 +54,21 @@ A record of type **CNAME** will be added to your hosted zone.
 
 CloudFront distribution needs a few minutes to be deployed.
 
+**OAI** stands for **Origin Access Identity** is a special CloudFront user, when using OAI only CloudFront can access files in your bucket. Go to your origin bucket and see the bucket's policy.
+
+Check the ACL of your logs bucket. Read and Write access has been granted to the AWS account with ID `c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0`\
+it's the `awslogsdelivery` account,
+
 ### Route traffic from your domain to your CloudFront distribution
 
 1. Go to [Route 53 Dashboard](https://console.aws.amazon.com/route53/v2/home) and details of your hosted zone.&#x20;
 2. Click **Create record**.
-3. Select **Record type** A and switch on **Alias**.
+3. Select **Record type** **A** and switch on **Alias**.
 4. In **Route traffic to** select **Alias to CloudFront distribution**.
 5. Select your distribution.
 6. Click **Create records**.
+
+The **A** record type is the most fundamental type of DNS record. It indicates the IP address of a given domain. **Amazon Route 53 alias record** is a Route 53-specific extension to DNS functionality. It lets you route traffic to selected AWS resources, such as CloudFront distribution in our case.
 
 Wait a couple of minutes and try to visit your domain in a web browser. You should see your index.html page.
 
